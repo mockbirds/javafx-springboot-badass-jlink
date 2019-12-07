@@ -36,6 +36,13 @@ jlink {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
         name = 'hellofx'
+        customImage {
+            appModules = ['de.mockbirds.merged.module']
+        }
+        jvmArgs = [
+            '--add-reads', 'de.mockbirds.merged.module=de.mockbirds.javafx',
+            '-cp', '../app/*'
+        ]
     }
     mergedModule {
         additive = true
